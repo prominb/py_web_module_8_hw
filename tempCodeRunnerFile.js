@@ -2,7 +2,7 @@
 // MongoDB Playground
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
-const database = 'hw8db';
+const database = 'pyweb8hw';
 const collection = 'authors';
 
 // Create a new database.
