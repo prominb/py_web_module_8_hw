@@ -28,6 +28,14 @@ def find_by_author(author: str) -> list[list[Any]]:
     return result
 
 
+@cache
+def find_by_tags(tags: list) -> list[str | None]:
+    print(f"Find by {tags} (no cache)")
+    quotes = Quote.objects(tags__in=tags)
+    result = [q.quote for q in quotes]
+    return result
+
+
 if __name__ == '__main__':
     print(find_by_tag('mi'))
     print(find_by_tag('mi'))

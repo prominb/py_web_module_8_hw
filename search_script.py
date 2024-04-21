@@ -1,4 +1,4 @@
-from hw1 import find_by_author, find_by_tag
+from hw1 import find_by_author, find_by_tag, find_by_tags
 
 
 def main():
@@ -18,8 +18,9 @@ def main():
         elif check_conditions[0] == "tags":  # check_conditions[0].startswith("tags"):
             normalize_tags = check_conditions[1].strip().split(',')
             # print(normalize_tags)
-            for tg in normalize_tags:
-                print(find_by_tag(tg))
+            # for tg in normalize_tags:
+            #     print(find_by_tag(tg))
+            print(find_by_tags(normalize_tags))
 
 
 if __name__ == '__main__':
