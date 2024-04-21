@@ -1,7 +1,19 @@
+import configparser
 from bson import json_util
 from mongoengine import connect, Document, StringField, ReferenceField, ListField, CASCADE
 
-connect(db="pyweb8hw", host="mongodb+srv://romalearn:S13o1ebSZ63pTcsV@prominb0.3pd0e3e.mongodb.net/")
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+mongo_user = config.get('DB', 'user')
+mongodb_pass = config.get('DB', 'pass')
+db_name = config.get('DB', 'db_name')
+domain = config.get('DB', 'domain')
+
+# connect to cluster on AtlasDB with connection string
+connect(host=f"""mongodb+srv://{mongo_user}:{mongodb_pass}@{domain}/{db_name}?retryWrites=true&w=majority""", ssl=True)
+# connect(db="pyweb8hw", host="mongodb+srv://romalearn:S13o1ebSZ63pTcsV@prominb0.3pd0e3e.mongodb.net/")
 
 
 class Author(Document):

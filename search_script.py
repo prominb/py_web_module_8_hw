@@ -12,21 +12,13 @@ def main():
         elif check_conditions[0].startswith("name"):
             normalize_author = check_conditions[1].strip()
             print(find_by_author(normalize_author))
-        elif check_conditions[0] == "tag":  # check_conditions[0].startswith("tag"):
+        elif check_conditions[0] == "tag":
             normalize_tag = check_conditions[1].strip()
             print(find_by_tag(normalize_tag))
-        elif check_conditions[0] == "tags":  # check_conditions[0].startswith("tags"):
+        elif check_conditions[0] == "tags":
             normalize_tags = check_conditions[1].strip().split(',')
-            # print(normalize_tags)
-            # for tg in normalize_tags:
-            #     print(find_by_tag(tg))
             print(find_by_tags(normalize_tags))
 
 
 if __name__ == '__main__':
     main()
-
-# name: Albert Einstein OR name: Steve Martin
-# name:st OR name:stev OR name:stei
-# tag:life OR tag:li
-# tags:life,live
