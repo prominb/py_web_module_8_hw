@@ -17,13 +17,9 @@ def main():
     def callback(ch, method, properties, body):
         contact_id = body.decode()
         contact = Contact.objects.with_id(contact_id)
-        if contact:
-            print(f"For ContactID: {contact_id}", end=" | ")
-            contact.update(set__ck_sent=True)
-            print(f"Message sent to {contact.email}.")
-        else:
-            print(f"Contact with ID {contact_id} not found.")
-
+        print(f"For ContactID: {contact_id}", end=" | ")
+        contact.update(set__ck_sent=True)
+        print(f"Message sent to {contact.email}.")
 
     channel.basic_consume(queue='sending_emails_queue', on_message_callback=callback, auto_ack=True)
 

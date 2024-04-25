@@ -1,5 +1,4 @@
 from random import randint
-from bson.objectid import ObjectId
 
 import pika
 from faker import Faker
