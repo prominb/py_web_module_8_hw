@@ -2,7 +2,6 @@ import json
 
 from mongoengine.errors import NotUniqueError
 
-import connect
 from models import Author, Quote
 
 if __name__ == '__main__':
